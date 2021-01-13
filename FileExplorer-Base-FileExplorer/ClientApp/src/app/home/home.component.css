@@ -1,0 +1,58 @@
+  .align {
+    text-align: center;
+    color: #777;
+  }
+
+  .folder{
+    line-height: 3.5;
+  }
+
+  .span-margin{
+    display: block;
+    padding-left: 1em;
+  }
+
+  .fa{
+    color: #777;
+  }
+  
+  .iconColor {
+    flex: 0 0 33.333333%;
+    max-width: 26%;
+    border-left: 4px solid #ccc;
+    height: auto;
+    margin-left: -3px;
+  }
+
+  .iconSpace{
+   max-width: 15%;
+ }
+
+ .bg-color {
+  color: #464EB8;
+}
+
+.btn-margin{
+  margin-left: 5em;
+  background-color: #464EB8;
+  border: none;
+  color: white;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.cursor{
+  cursor: pointer;
+}
+
+.div-margintop-10{
+  margin-top: 10%;
+}
+
+.div-margintop-5{
+  margin-top: 5%;
+}
+.fontsize{
+  font-size:50px;
+}

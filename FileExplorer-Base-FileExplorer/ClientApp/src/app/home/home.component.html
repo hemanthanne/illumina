@@ -1,0 +1,82 @@
+<h1 class="align">SELECT FOLDER</h1>		
+<p>Local Output Folder</p>
+<a *ngIf="currentRoute" class="btn btn-primary cursor"  (click)='navigateToPrevious()' >{{currentRoute}}</a>
+
+<div class="row">
+  
+  <div class="col-md-4 iconSpace div-margintop-10">
+    <div>
+      <div>
+          <i (click)="onSystemClick()" class="fa fa-laptop fa-5x"></i>
+      </div>
+      <div>
+          <span class="span-margin">System</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 folder iconColor div-margintop-5" *ngIf="isSystemClicked">
+    <div *ngFor="let data of rootFolders">
+      <span>
+          <i
+          (click)="onFolderClick(data, 'root')"
+          class="fa fa-folder-o fa-3x"
+          [ngClass]="{
+            'fa-folder-open-o bg-color': !data.isOpened && !data.isFile,
+            'fa-folder-open-o bg-color': data.isOpened && !data.isFile,
+            'fa-file-o' :  data.isFile
+          }"
+        ></i>
+        
+        <i  class='fa fa-file-o fontsize' *ngIf="data.isOpened && data.isFile"></i>
+      </span>
+      <span>
+          <button class="btn btn-primary btn-margin" class="btn-margin fa fa-eye" *ngIf="data.isFile && data.isPreviewEnabled" (click)="openPreview(data)" >Preview</button>
+      </span>
+        <span>{{ data.folderName }}</span>
+    </div>
+  </div>
+  <div class="col-md-4 folder iconColor div-margintop-5" *ngIf="isFolderClicked">
+    <div *ngFor="let data of subFolders">
+      <span>
+          <i
+          (click)="onFolderClick(data, 'sub')"
+          class="fa fa-folder-o fa-3x"
+          [ngClass]="{
+            'fa-folder-open-o bg-color': !data.isOpened && !data.isFile,
+            'fa-folder-open-o bg-color': data.isOpened && !data.isFile,
+            'fa-file-o' : data.isFile
+           
+          }"
+        ></i>
+        
+        <i class='fa fa-file-o fontsize' *ngIf="data.isOpened && data.isFile"></i>
+      </span>
+      <span>
+          <button class="btn btn-primary btn-margin" class="btn-margin fa fa-eye" *ngIf="data.isFile && data.isPreviewEnabled" (click)="openPreview(data)" >Preview</button>
+      </span>
+          <span>{{ data.folderName }}</span>
+    </div>
+  </div>
+  <div class="col-md-4 folder iconColor div-margintop-5" *ngIf="isFolderClicked">
+    <div *ngFor="let data of subsubFolders">
+
+      <span>
+          <i
+          (click)="onFolderClick(data, 'subtosub')"
+          class="fa fa-folder-open-o fa-3x"
+          [ngClass]="{
+            'fa-folder-o bg-color': !data.isOpened && !data.isFile,
+            'fa-folder-open-o bg-color': data.isOpened && !data.isFile,
+            'fa-file-o' : data.isFile
+           
+          }"
+        ></i>
+        <i  class='fa fa-file-o fontsize' *ngIf="data.isOpened && data.isFile"></i>
+      </span>
+      <span>
+          <button class="btn btn-primary btn-margin" class="btn-margin fa fa-eye" *ngIf="data.isFile && data.isPreviewEnabled" (click)="openPreview(data)" >Preview</button>
+      </span>
+        <span>{{ data.folderName }}</span>
+    </div>
+  </div>
+</div>
